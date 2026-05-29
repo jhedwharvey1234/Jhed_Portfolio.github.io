@@ -119,47 +119,54 @@ a:hover {
 .nav-toggle {
     display: none;
     border: none;
-    background: rgba(255, 255, 255, 0.1);
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
     cursor: pointer;
+    display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    color: white;
+    color: #e0e7ff;
     margin-left: 1rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 0;
 }
 
 .nav-toggle:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(236, 72, 153, 0.2));
+    border-color: rgba(99, 102, 241, 0.4);
 }
 
 .nav-toggle span {
-    display: inline-block;
-    width: 22px;
-    height: 2px;
+    display: block;
+    width: 24px;
+    height: 2.5px;
     background: currentColor;
     position: relative;
     transition: var(--transition);
+    border-radius: 1px;
 }
 
 .nav-toggle span::before,
 .nav-toggle span::after {
     content: '';
     position: absolute;
-    width: 22px;
-    height: 2px;
+    width: 24px;
+    height: 2.5px;
     background: currentColor;
     transition: var(--transition);
+    border-radius: 1px;
+    left: 0;
 }
 
 .nav-toggle span::before {
-    top: -7px;
+    top: -8px;
 }
 
 .nav-toggle span::after {
-    top: 7px;
+    top: 8px;
 }
 
 .nav-toggle.open span {
@@ -167,11 +174,13 @@ a:hover {
 }
 
 .nav-toggle.open span::before {
-    transform: rotate(45deg) translate(4px, 0);
+    transform: rotate(45deg) translateY(0);
+    top: 0;
 }
 
 .nav-toggle.open span::after {
-    transform: rotate(-45deg) translate(4px, 0);
+    transform: rotate(-45deg) translateY(0);
+    top: 0;
 }
 
 /* ===========================
@@ -903,6 +912,9 @@ main {
     transition: var(--transition);
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .btn:hover {
@@ -916,6 +928,8 @@ main {
 
 .project-modal-btn {
     margin-top: auto;
+    width: 100%;
+    text-align: center;
 }
 
 /* ===========================
@@ -1013,6 +1027,62 @@ main {
     }
 }
 
+@media (max-width: 640px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.99);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.4rem;
+        margin-top: 0.5rem;
+        border-radius: 10px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        z-index: 999;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.65rem 1rem;
+        margin: 0.15rem 0;
+        border-radius: 6px;
+        transition: var(--transition);
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 500;
+    }
+
+    .nav-links a:hover {
+        background: rgba(99, 102, 241, 0.15);
+        color: #6366f1;
+    }
+
+    .nav-links a.active {
+        background: rgba(99, 102, 241, 0.2);
+        color: #6366f1;
+    }
+
+    .navbar {
+        position: relative;
+    }
+
+
 @media (max-width: 480px) {
     .hero {
         padding: 3rem 0;
@@ -1034,6 +1104,7 @@ main {
         flex-direction: column;
         align-items: stretch;
         gap: 1rem;
+        position: relative;
     }
 
     .logo {
@@ -1043,14 +1114,25 @@ main {
 
     .nav-toggle {
         display: inline-flex;
+        align-self: center;
     }
 
     .nav-links {
         display: none;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 20px;
         width: 100%;
         align-items: stretch;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: rgba(15, 23, 42, 0.98);
+        padding: 1rem 0;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.22);
+        z-index: 999;
     }
 
     .nav-links.open {
@@ -1078,11 +1160,28 @@ main {
     .projects-grid {
         flex-direction: column;
         gap: 1.5rem;
+        align-items: stretch;
     }
 
     .project-card {
         max-width: none;
         width: 100%;
+        min-width: 0;
+        padding: 1.5rem 1rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-card p {
+        font-size: 0.95rem;
+    }
+
+    .project-card .btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
     }
 
     .skill {
@@ -1094,6 +1193,7 @@ main {
         flex-direction: row;
         align-items: center;
         justify-content: center;
+        flex-wrap: nowrap;
     }
 
     .modal-image-wrapper {
@@ -1130,4 +1230,6 @@ main {
         padding: 0.75rem 1.25rem;
         font-size: 0.95rem;
     }
+}
+
 }
