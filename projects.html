@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +14,9 @@
                 <h1>Jhed Mendoza</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.php">Home</a></li>
-                <li><a href="projects.php" class="active">Projects</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -27,64 +26,31 @@
         <div class="container">
             <div class="hero-content">
                 <h2>My Projects</h2>
-                <!--<p class="subtitle">Practical systems built for IT infrastructure and management</p>-->
             </div>
         </div>
     </section>
 
     <!-- Projects Content -->
-    <main class="container" style = "margin-top: 50px;">
-        <section class="section" >
-            <div class="projects-grid" >
-                <?php
-                    $projects = [
-                        [
-                            'title' => 'House Project Cost Estimator System',
-                            'description' => 'A thesis project designed to calculate estimated construction costs based on user input and project requirements.',
-                            'technologies' => 'PHP, MySQL, JavaScript, HTML/CSS',
-                            'images' => [
-                                'images/c1.png',
-                                'images/c2.png',
-                                'images/c3.png',
-                                'images/c4.png',
-                                'images/c5.png',
-                                'images/c6.png',
-                                'images/c7.png',
-                                'images/c8.png'
-                            ]
-                        ],
-                    
-
-                        [
-                            'title' => 'IT Infrastructure Management Tools',
-                            'description' => 'Created web-based tools focused on improving organization and accessibility of IT infrastructure resources and documentation.',
-                            'technologies' => 'PHP, JavaScript, HTML/CSS, Azure AD',
-                            'images' => [
-                                'images/warning.png',
-                                'images/l1.png',
-                                'images/l2.png',
-                                'images/l3.png',
-                                'images/l4.png',
-                                'images/l5.png'
-                            ]
-                        ]
-                    ];
-                    
-                    foreach ($projects as $project) {
-                        $imageData = htmlspecialchars(json_encode($project['images']), ENT_QUOTES, 'UTF-8');
-                        echo '<div class="project-card">';
-                        echo '<h3>' . htmlspecialchars($project['title']) . '</h3>';
-                        echo '<p>' . htmlspecialchars($project['description']) . '</p>';
-                        echo '<p class="tech"><strong>Technologies:</strong> ' . htmlspecialchars($project['technologies']) . '</p>';
-                        echo '<button type="button" class="btn project-modal-btn" data-title="' . htmlspecialchars($project['title']) . '" data-images="' . $imageData . '">View Project</button>';
-                        echo '</div>';
-                    }
-                ?>
+    <main class="container" style="margin-top: 50px;">
+        <section class="section">
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>House Project Cost Estimator System</h3>
+                    <p>A thesis project designed to calculate estimated construction costs based on user input and project requirements.</p>
+                    <p class="tech"><strong>Technologies:</strong> PHP, MySQL, JavaScript, HTML/CSS</p>
+                    <button type="button" class="btn project-modal-btn" data-title="House Project Cost Estimator System" data-images='["images/c1.png","images/c2.png","images/c3.png","images/c4.png","images/c5.png","images/c6.png","images/c7.png","images/c8.png"]'>View Project</button>
+                </div>
+                <div class="project-card">
+                    <h3>IT Infrastructure Management Tools</h3>
+                    <p>Created web-based tools focused on improving organization and accessibility of IT infrastructure resources and documentation.</p>
+                    <p class="tech"><strong>Technologies:</strong> PHP, JavaScript, HTML/CSS, Azure AD</p>
+                    <button type="button" class="btn project-modal-btn" data-title="IT Infrastructure Management Tools" data-images='["images/warning.png","images/l1.png","images/l2.png","images/l3.png","images/l4.png","images/l5.png"]'>View Project</button>
+                </div>
             </div>
         </section>
     </main>
 
-    <div class="modal-overlay" id="projectModal" aria-hidden="true" >
+    <div class="modal-overlay" id="projectModal" aria-hidden="true">
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
             <h3 id="modalTitle">Project Title</h3>
@@ -92,7 +58,7 @@
                 <button type="button" class="modal-arrow" id="modalPrevBtn" aria-label="Previous image">&#10094;</button>
                 <div class="modal-image-wrapper">
                     <img id="modalImage" src="" alt="">
-                    <div class="modal-image-counter"><span id="modalImageIndex">1</span>/<span id="modalImageTotal">3</span></div>
+                    <div class="modal-image-counter"><span id="modalImageIndex">1</span>/<span id="modalImageTotal">1</span></div>
                 </div>
                 <button type="button" class="modal-arrow" id="modalNextBtn" aria-label="Next image">&#10095;</button>
             </div>
@@ -196,7 +162,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; <?php echo date('Y'); ?> My Portfolio. All rights reserved.</p>
+            <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
         </div>
     </footer>
 </body>

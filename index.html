@@ -1,14 +1,10 @@
-<?php
-session_start();
-$current_page = 'home';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Resume Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -18,9 +14,9 @@ $current_page = 'home';
                 <h1>Jhed Mendoza</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="index.php" class="<?php echo $current_page === 'home' ? 'active' : ''; ?>">Home</a></li>
-                <li><a href="projects.php">Projects</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -47,28 +43,62 @@ $current_page = 'home';
         <section class="section">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
-                <?php
-                    $skills = [
-                        'Frontend Development (HTML, CSS, JavaScript)' => 95,
-                        'Backend Development Fundamentals' => 85,
-                        'Responsive Web Design' => 90,
-                        'SQL / Database Handling' => 85,
-                        'REST API Integration' => 80,
-                        'Git & Version Control' => 85,
-                        'Microsoft Office Suite' => 80,
-                        'Project Development & Pitching' => 80
-                    ];
-                    
-                    foreach ($skills as $skill => $percentage) {
-                        echo '<div class="skill">';
-                        echo '<h3>' . $skill . '</h3>';
-                        echo '<div class="skill-bar">';
-                        echo '<div class="skill-progress" style="width: ' . $percentage . '%"></div>';
-                        echo '</div>';
-                        echo '<span class="percentage">' . $percentage . '%</span>';
-                        echo '</div>';
-                    }
-                ?>
+                <div class="skill">
+                    <h3>Frontend Development (HTML, CSS, JavaScript)</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                    <span class="percentage">95%</span>
+                </div>
+                <div class="skill">
+                    <h3>Backend Development Fundamentals</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                    <span class="percentage">85%</span>
+                </div>
+                <div class="skill">
+                    <h3>Responsive Web Design</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                    <span class="percentage">90%</span>
+                </div>
+                <div class="skill">
+                    <h3>SQL / Database Handling</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                    <span class="percentage">85%</span>
+                </div>
+                <div class="skill">
+                    <h3>REST API Integration</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                </div>
+                <div class="skill">
+                    <h3>Git & Version Control</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                    <span class="percentage">85%</span>
+                </div>
+                <div class="skill">
+                    <h3>Microsoft Office Suite</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                </div>
+                <div class="skill">
+                    <h3>Project Development & Pitching</h3>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                    <span class="percentage">80%</span>
+                </div>
             </div>
         </section>
 
@@ -102,7 +132,7 @@ $current_page = 'home';
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; <?php echo date('Y'); ?> Jhed Mendoza. All rights reserved.</p>
+            <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
         </div>
     </footer>
 </body>
