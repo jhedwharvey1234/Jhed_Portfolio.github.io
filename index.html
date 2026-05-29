@@ -13,6 +13,9 @@
             <div class="logo">
                 <h1>Jhed Mendoza</h1>
             </div>
+            <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="projects.html">Projects</a></li>
@@ -135,5 +138,18 @@
             <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+    (function() {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (!navToggle || !navLinks) return;
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            navToggle.classList.toggle('open');
+            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+    })();
+    </script>
 </body>
 </html>
