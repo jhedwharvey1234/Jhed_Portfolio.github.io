@@ -159,6 +159,29 @@
             if (event.key === 'ArrowLeft') prevBtn.click();
             if (event.key === 'ArrowRight') nextBtn.click();
         });
+
+        let startTouchX = 0;
+        let startTouchY = 0;
+
+        modal.addEventListener('touchstart', event => {
+            if (event.touches.length !== 1) return;
+            startTouchX = event.touches[0].clientX;
+            startTouchY = event.touches[0].clientY;
+        }, { passive: true });
+
+        modal.addEventListener('touchend', event => {
+            if (!modal.classList.contains('open')) return;
+            const touch = event.changedTouches[0];
+            const deltaX = touch.clientX - startTouchX;
+            const deltaY = touch.clientY - startTouchY;
+            if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                if (deltaX < 0) {
+                    nextBtn.click();
+                } else {
+                    prevBtn.click();
+                }
+            }
+        });
     })();
     </script>
 

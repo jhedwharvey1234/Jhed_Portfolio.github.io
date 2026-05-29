@@ -731,6 +731,7 @@ main {
 
 .info-item {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
     padding: 1.5rem;
     background: white;
@@ -758,6 +759,7 @@ main {
 .info-item p,
 .info-item a {
     margin: 0;
+    min-width: 0;
 }
 
 .info-label {
@@ -772,6 +774,9 @@ main {
     font-weight: 500;
     text-decoration: none;
     transition: var(--transition);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
 }
 
 .info-item a:hover {
@@ -1086,12 +1091,14 @@ main {
 
     .modal-gallery {
         gap: 0.75rem;
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     .modal-image-wrapper {
         max-width: 100%;
+        flex: 1 1 auto;
     }
 
     .modal-arrow {
@@ -1099,6 +1106,7 @@ main {
         height: 44px;
         font-size: 1rem;
         padding: 0.75rem;
+        flex: 0 0 auto;
     }
 
     .modal-thumbs {
