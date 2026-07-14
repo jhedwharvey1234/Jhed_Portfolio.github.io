@@ -26,6 +26,7 @@
     const modalIndex = document.getElementById('modalImageIndex');
     const modalTotal = document.getElementById('modalImageTotal');
     const modalThumbs = document.getElementById('modalThumbs');
+    const modalGallery = document.getElementById('modalGallery');
     const prevBtn = document.getElementById('modalPrevBtn');
     const nextBtn = document.getElementById('modalNextBtn');
     const closeBtn = document.getElementById('modalCloseBtn');
@@ -113,4 +114,21 @@
         if (event.key === 'ArrowRight') nextBtn.click();
     });
 
+    if (modalGallery) {
+        modalGallery.addEventListener('click', function (event) {
+            if (!modal.classList.contains('open')) return;
+            if (window.innerWidth > 760) return;
+            if (event.target === closeBtn || closeBtn.contains(event.target)) return;
+
+            const rect = modalGallery.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const isRightSide = clickX > rect.width / 2;
+
+            if (isRightSide) {
+                nextBtn.click();
+            } else {
+                prevBtn.click();
+            }
+        });
+    }
 })();
