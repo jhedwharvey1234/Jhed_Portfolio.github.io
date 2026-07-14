@@ -26,15 +26,12 @@
     const modalIndex = document.getElementById('modalImageIndex');
     const modalTotal = document.getElementById('modalImageTotal');
     const modalThumbs = document.getElementById('modalThumbs');
-    const modalGallery = document.getElementById('modalGallery');
     const prevBtn = document.getElementById('modalPrevBtn');
     const nextBtn = document.getElementById('modalNextBtn');
     const closeBtn = document.getElementById('modalCloseBtn');
 
     let currentImages = [];
     let currentIndex = 0;
-    let startTouchX = 0;
-    let startTouchY = 0;
 
     function updateModal() {
         if (!currentImages.length) return;
@@ -116,26 +113,4 @@
         if (event.key === 'ArrowRight') nextBtn.click();
     });
 
-    if (modalGallery) {
-        modalGallery.addEventListener('touchstart', function (event) {
-            if (event.touches.length !== 1) return;
-            startTouchX = event.touches[0].clientX;
-            startTouchY = event.touches[0].clientY;
-        }, { passive: true });
-
-        modalGallery.addEventListener('touchend', function (event) {
-            if (!modal.classList.contains('open')) return;
-            const touch = event.changedTouches[0];
-            const deltaX = touch.clientX - startTouchX;
-            const deltaY = touch.clientY - startTouchY;
-
-            if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                if (deltaX < 0) {
-                    nextBtn.click();
-                } else {
-                    prevBtn.click();
-                }
-            }
-        }, { passive: true });
-    }
 })();
