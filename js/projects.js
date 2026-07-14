@@ -33,6 +33,7 @@
 
     let currentImages = [];
     let currentIndex = 0;
+    let suppressClickUntil = 0;
 
     function updateModal() {
         if (!currentImages.length) return;
@@ -114,21 +115,33 @@
         if (event.key === 'ArrowRight') nextBtn.click();
     });
 
+    function handleMobileTap(clientX) {
+        if (!modal.classList.contains('open')) return;
+        if (window.innerWidth > 760) return;
+
+        const isRightSide = clientX > window.innerWidth / 2;
+        if (isRightSide) {
+            nextBtn.click();
+        } else {
+            prevBtn.click();
+        }
+    }
+
     if (modalGallery) {
-        modalGallery.addEventListener('click', function (event) {
-            if (!modal.classList.contains('open')) return;
-            if (window.innerWidth > 760) return;
+        modalGallery.addEventListener('touchend', function (event) {
+            if (event.changedTouches.length !== 1) return;
             if (event.target === closeBtn || closeBtn.contains(event.target)) return;
 
-            const rect = modalGallery.getBoundingClientRect();
-            const clickX = event.clientX - rect.left;
-            const isRightSide = clickX > rect.width / 2;
+            const clientX = event.changedTouches[0].clientX;
+            suppressClickUntil = Date.now() + 400;
+            handleMobileTap(clientX);
+        }, { passive: true });
 
-            if (isRightSide) {
-                nextBtn.click();
-            } else {
-                prevBtn.click();
-            }
+        modalGallery.addEventListener('click', function (event) {
+            if (Date.now() < suppressClickUntil) return;
+            if (event.target === closeBtn || closeBtn.contains(event.target)) return;
+
+            handleMobileTap(event.clientX);
         });
     }
 })();
