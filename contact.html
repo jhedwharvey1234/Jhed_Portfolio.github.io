@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me - Portfolio</title>
+    <title>Contact | Jhed Mendoza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <!-- Navigation -->
+<body class="page-contact">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
     <nav class="navbar">
-        <div class="container">
-            
+        <div class="container nav-shell">
+            <a class="brand" href="index.html" aria-label="Homepage">
+                <span class="brand-mark">JWM</span>
+                <span class="brand-text">Open For Opportunities</span>
+            </a>
             <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
             </button>
@@ -22,83 +31,72 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Get In Touch</h2>
-            </div>
-        </div>
-    </section>
+    <header class="page-hero container reveal">
+        <p class="section-kicker">Connect</p>
+        <h1>Let&apos;s Build Something Great</h1>
+        <p>I am actively looking for full stack opportunities where I can contribute engineering depth and product-minded execution.</p>
+    </header>
 
-    <!-- Contact Content -->
     <main class="container">
-        <section class="section">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div>
-                        <h3>Contact Information</h3>
-                        <div class="info-item">
-                            <span class="info-icon">✉️</span>
-                            <div>
-                                <p class="info-label">Email</p>
-                                <a href="mailto:mendoza.jhed.wharvey@gmail.com">mendoza.jhed.wharvey@gmail.com</a>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">📱</span>
-                            <div>
-                                <p class="info-label">Phone</p>
-                                <p>+63 916 746 2548</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-icon">📍</span>
-                            <div>
-                                <p class="info-label">Location</p>
-                                <p>San Pablo City, Laguna</p>
-                            </div>
+        <section class="section reveal">
+            <div class="contact-grid">
+                <article class="glass-card contact-card">
+                    <h2>Contact Information</h2>
+                    <div class="info-item">
+                        <span class="info-icon">@</span>
+                        <div>
+                            <p class="info-label">Email</p>
+                            <a href="mailto:mendoza.jhed.wharvey@gmail.com">mendoza.jhed.wharvey@gmail.com</a>
                         </div>
                     </div>
+                    <div class="info-item">
+                        <span class="info-icon">#</span>
+                        <div>
+                            <p class="info-label">Phone</p>
+                            <p>+63 916 746 2548</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">+</span>
+                        <div>
+                            <p class="info-label">Location</p>
+                            <p>San Pablo City, Laguna</p>
+                        </div>
+                    </div>
+                </article>
 
-                    <div>
-                        <h3>References</h3>
-                        <div class="reference-card">
-                            <p class="ref-name">Vanessa T. Isaga</p>
-                            <p class="ref-title">College Instructor / Advisor</p>
-                            <p class="ref-contact">Phone: 09186510276</p>
-                            <p class="ref-contact">Email: vanessa.isaga@dlsl.edu.ph</p>
-                        </div>
-                        <div class="reference-card">
-                            <p class="ref-name">Adorable Dauz</p>
-                            <p class="ref-title">LBC I.T. Network Manager</p>
-                            <p class="ref-contact">Phone: 09605603083</p>
-                            <p class="ref-contact">Email: anddauz@lbcexpress.com</p>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="section-head">
+                <p class="section-kicker">References</p>
+                <h2>Professional References</h2>
+            </div>
+            <div class="reference-grid">
+                <article class="reference-card">
+                    <p class="ref-name">Vanessa T. Isaga</p>
+                    <p class="ref-title">College Instructor and Advisor</p>
+                    <p class="ref-contact">Phone: 09186510276</p>
+                    <p class="ref-contact">Email: vanessa.isaga@dlsl.edu.ph</p>
+                </article>
+                <article class="reference-card">
+                    <p class="ref-name">Adorable Dauz</p>
+                    <p class="ref-title">LBC IT Network Manager</p>
+                    <p class="ref-contact">Phone: 09605603083</p>
+                    <p class="ref-contact">Email: anddauz@lbcexpress.com</p>
+                </article>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
+        <div class="container footer-shell">
+            <p>2026 Jhed Mendoza. Crafted with precision and personality.</p>
+            <a href="projects.html" class="footer-link">Browse Project Work</a>
         </div>
     </footer>
 
-    <script>
-    (function() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (!navToggle || !navLinks) return;
-        navToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            navToggle.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-    })();
-    </script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects - Portfolio</title>
+    <title>Projects | Jhed Mendoza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <!-- Navigation -->
+<body class="page-projects">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
     <nav class="navbar">
-        <div class="container">
-           
+        <div class="container nav-shell">
+            <a class="brand" href="index.html" aria-label="Homepage">
+                <span class="brand-mark">JWM</span>
+                <span class="brand-text">Portfolio Showcase</span>
+            </a>
             <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
             </button>
@@ -22,31 +31,40 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>My Projects</h2>
-            </div>
-        </div>
-    </section>
+    <header class="page-hero container reveal">
+        <p class="section-kicker">Portfolio</p>
+        <h1>Selected Work</h1>
+        <p>Real projects focused on solving practical infrastructure and web application challenges.</p>
+    </header>
 
-    <!-- Projects Content -->
-    <main class="container" style="margin-top: 50px;">
-        <section class="section">
-            <div class="projects-grid">
-                <div class="project-card" >
-                    <h3>House Project Cost Estimator System</h3>
-                    <p>A thesis project designed to calculate estimated construction costs based on user input and project requirements.</p>
-                    <p class="tech"><strong>Technologies:</strong> PHP, MySQL, JavaScript, HTML/CSS</p>
-                    <button type="button" class="btn project-modal-btn" data-title="House Project Cost Estimator System" data-images='["images/c1.png","images/c2.png","images/c3.png","images/c4.png","images/c5.png","images/c6.png","images/c7.png","images/c8.png"]'>View Project</button>
-                </div>
-                <div class="project-card">
-                    <h3>IT Infrastructure Management Tools</h3>
-                    <p>Created web-based tools focused on improving organization and accessibility of IT infrastructure resources and documentation.</p>
-                    <p class="tech"><strong>Technologies:</strong> PHP, JavaScript, HTML/CSS, Azure AD</p>
-                    <button type="button" class="btn project-modal-btn" data-title="IT Infrastructure Management Tools" data-images='["images/warning.png","images/lbc_sign.jpeg","images/l1.png","images/l2.png","images/l3.png","images/l4.png","images/l5.png"]'>View Project</button>
-                </div>
+    <main class="container">
+        <section class="section reveal">
+            <div class="filter-row" role="group" aria-label="Project filters">
+                <button class="filter-btn active" data-filter="all" type="button">All</button>
+                <button class="filter-btn" data-filter="web" type="button">Web Apps</button>
+                <button class="filter-btn" data-filter="infra" type="button">Infrastructure</button>
+            </div>
+
+            <div class="project-grid-v2">
+                <article class="project-panel reveal" data-group="web">
+                    <img src="images/c1.png" alt="House estimator screenshot" class="project-cover">
+                    <div class="project-content">
+                        <h2>House Project Cost Estimator System</h2>
+                        <p>A thesis platform for estimating construction costs from user requirements, with clear data input and report-based output.</p>
+                        <p class="tech">PHP, MySQL, JavaScript, HTML/CSS</p>
+                        <button type="button" class="btn btn-primary project-modal-btn" data-title="House Project Cost Estimator System" data-images='["images/c1.png","images/c2.png","images/c3.png","images/c4.png","images/c5.png","images/c6.png","images/c7.png","images/c8.png"]'>View Case Study</button>
+                    </div>
+                </article>
+
+                <article class="project-panel reveal" data-group="infra">
+                    <img src="images/lbc_sign.jpeg" alt="LBC project screenshot" class="project-cover">
+                    <div class="project-content">
+                        <h2>IT Infrastructure Management Tools</h2>
+                        <p>Internal tooling for infrastructure documentation, assets, and user operations with a cleaner and more reliable workflow.</p>
+                        <p class="tech">PHP, JavaScript, HTML/CSS, Azure AD</p>
+                        <button type="button" class="btn btn-primary project-modal-btn" data-title="IT Infrastructure Management Tools" data-images='["images/warning.png","images/lbc_sign.jpeg","images/l1.png","images/l2.png","images/l3.png","images/l4.png","images/l5.png"]'>View Case Study</button>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -55,7 +73,7 @@
         <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
             <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close">&times;</button>
             <h3 id="modalTitle">Project Title</h3>
-            <div class="modal-gallery">
+            <div class="modal-gallery" id="modalGallery">
                 <button type="button" class="modal-arrow" id="modalPrevBtn" aria-label="Previous image">&#10094;</button>
                 <div class="modal-image-wrapper">
                     <img id="modalImage" src="" alt="">
@@ -67,140 +85,14 @@
         </div>
     </div>
 
-    <script>
-    (function() {
-        const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalImage = document.getElementById('modalImage');
-        const modalIndex = document.getElementById('modalImageIndex');
-        const modalTotal = document.getElementById('modalImageTotal');
-        const modalThumbs = document.getElementById('modalThumbs');
-        const prevBtn = document.getElementById('modalPrevBtn');
-        const nextBtn = document.getElementById('modalNextBtn');
-        const closeBtn = document.getElementById('modalCloseBtn');
-
-        let currentImages = [];
-        let currentIndex = 0;
-
-        const updateModal = () => {
-            if (!currentImages.length) return;
-            modalImage.src = currentImages[currentIndex];
-            modalImage.alt = modalTitle.textContent + ' screenshot ' + (currentIndex + 1);
-            modalIndex.textContent = currentIndex + 1;
-            modalTotal.textContent = currentImages.length;
-            const thumbs = modalThumbs.querySelectorAll('.modal-thumb');
-            thumbs.forEach((thumb, idx) => thumb.classList.toggle('active', idx === currentIndex));
-        };
-
-        const buildThumbnails = () => {
-            modalThumbs.innerHTML = '';
-            currentImages.forEach((src, idx) => {
-                const thumb = document.createElement('button');
-                thumb.type = 'button';
-                thumb.className = 'modal-thumb' + (idx === currentIndex ? ' active' : '');
-                thumb.innerHTML = '<img src="' + src + '" alt="Thumbnail ' + (idx + 1) + '">';
-                thumb.addEventListener('click', () => {
-                    currentIndex = idx;
-                    updateModal();
-                });
-                modalThumbs.appendChild(thumb);
-            });
-        };
-
-        const openModal = (title, images) => {
-            currentImages = images;
-            currentIndex = 0;
-            modalTitle.textContent = title;
-            buildThumbnails();
-            updateModal();
-            modal.classList.add('open');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeModal = () => {
-            modal.classList.remove('open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        };
-
-        document.querySelectorAll('.project-modal-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const title = button.dataset.title;
-                const images = JSON.parse(button.dataset.images);
-                openModal(title, images);
-            });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (!currentImages.length) return;
-            currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-            updateModal();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (!currentImages.length) return;
-            currentIndex = (currentIndex + 1) % currentImages.length;
-            updateModal();
-        });
-
-        closeBtn.addEventListener('click', closeModal);
-        modal.addEventListener('click', event => {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', event => {
-            if (!modal.classList.contains('open')) return;
-            if (event.key === 'Escape') closeModal();
-            if (event.key === 'ArrowLeft') prevBtn.click();
-            if (event.key === 'ArrowRight') nextBtn.click();
-        });
-
-        let startTouchX = 0;
-        let startTouchY = 0;
-
-        modal.addEventListener('touchstart', event => {
-            if (event.touches.length !== 1) return;
-            startTouchX = event.touches[0].clientX;
-            startTouchY = event.touches[0].clientY;
-        }, { passive: true });
-
-        modal.addEventListener('touchend', event => {
-            if (!modal.classList.contains('open')) return;
-            const touch = event.changedTouches[0];
-            const deltaX = touch.clientX - startTouchX;
-            const deltaY = touch.clientY - startTouchY;
-            if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
-                if (deltaX < 0) {
-                    nextBtn.click();
-                } else {
-                    prevBtn.click();
-                }
-            }
-        });
-    })();
-    </script>
-
-    <script>
-    (function() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (!navToggle || !navLinks) return;
-        navToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            navToggle.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-    })();
-    </script>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
+        <div class="container footer-shell">
+            <p>2026 Jhed Mendoza. Crafted with precision and personality.</p>
+            <a href="contact.html" class="footer-link">Discuss Your Team Needs</a>
         </div>
     </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/projects.js" defer></script>
 </body>
 </html>

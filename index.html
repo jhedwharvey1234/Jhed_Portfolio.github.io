@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Resume Portfolio</title>
+    <title>Jhed Mendoza | Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <!-- Navigation -->
+<body class="page-home">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
     <nav class="navbar">
-        <div class="container">
-           
+        <div class="container nav-shell">
+            <a class="brand" href="index.html" aria-label="Homepage">
+                <span class="brand-mark">JWM</span>
+                <span class="brand-text">Build. Scale. Secure.</span>
+            </a>
             <button type="button" class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
             </button>
@@ -22,132 +31,130 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Jhed Wharvey Mendoza</h2>
-                <p class="subtitle">Full Stack Developer</p>
+    <header class="hero container reveal">
+        <div class="hero-panel">
+            <div class="hero-copy">
+                <p class="eyebrow">Available For Full Stack Roles</p>
+                <h1>Jhed Wharvey Mendoza</h1>
+                <p class="hero-role">Full Stack Developer with Infrastructure Experience</p>
+                <p class="hero-description">I design and deliver business-ready web applications with clean UI, strong backend logic, and practical security habits. I focus on systems that feel fast, scale cleanly, and solve real workflow problems.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="projects.html">View Projects</a>
+                    <a class="btn btn-ghost" href="contact.html">Let&apos;s Talk</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="avatar-ring">
+                    <div class="avatar-core">JM</div>
+                    <span class="orbit orbit-a"></span>
+                    <span class="orbit orbit-b"></span>
+                </div>
+                <p class="hero-side-text">Engineering digital experiences with depth and personality</p>
             </div>
         </div>
-    </section>
 
-    <!-- Main Content -->
+    </header>
+
     <main class="container">
-        <!-- About Section -->
-        <section class="section">
-            <h2 class="section-title">About Me</h2>
-            <p>IT professional focused on full-stack development, with experience in building responsive web applications, developing scalable backend systems, and designing user-friendly interfaces. Applies secure coding principles and continues building skills in modern web technologies, software architecture, and application security.</p>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">
-                    <h3>Frontend Development (HTML, CSS, JavaScript)</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 95%"></div>
-                    </div>
-                    <span class="percentage">95%</span>
-                </div>
-                <div class="skill">
-                    <h3>Backend Development Fundamentals</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                    <span class="percentage">85%</span>
-                </div>
-                <div class="skill">
-                    <h3>Responsive Web Design</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%"></div>
-                    </div>
-                    <span class="percentage">90%</span>
-                </div>
-                <div class="skill">
-                    <h3>SQL / Database Handling</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                    <span class="percentage">85%</span>
-                </div>
-                <div class="skill">
-                    <h3>REST API Integration</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <span class="percentage">80%</span>
-                </div>
-                <div class="skill">
-                    <h3>Git & Version Control</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%"></div>
-                    </div>
-                    <span class="percentage">85%</span>
-                </div>
-                <div class="skill">
-                    <h3>Microsoft Office Suite</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <span class="percentage">80%</span>
-                </div>
-                <div class="skill">
-                    <h3>Project Development & Pitching</h3>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 80%"></div>
-                    </div>
-                    <span class="percentage">80%</span>
-                </div>
+        <section class="section reveal" id="about">
+            <div class="section-head">
+                <p class="section-kicker">Profile</p>
+                <h2>About Me</h2>
+            </div>
+            <div class="about-layout">
+                <article class="glass-card">
+                    <p>IT professional focused on full-stack development, with experience building responsive web applications, scalable backend systems, and practical admin tools for internal teams.</p>
+                    <p>I blend product thinking with engineering discipline, from secure authentication and data handling to polished user experience and deployment readiness.</p>
+                </article>
+                <article class="glass-card highlight-card">
+                    <h3>Core Strengths</h3>
+                    <ul class="chip-list">
+                        <li>System Design Mindset</li>
+                        <li>Secure Coding Practice</li>
+                        <li>Database-Driven Workflows</li>
+                        <li>Cloud Identity Integration</li>
+                    </ul>
+                </article>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section class="section">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-item">
-                <h3>IT Full Stack Developer Intern</h3>
-                <p class="company">LBC Express — IT Infrastructure Department | January - April 2026</p>
-                <ul class="experience-list">
-                    <li>Developed and maintained internal infrastructure tools for users, company assets, LBC applications, documents, and DCF management.</li>
-                    <li>Integrated Azure Active Directory (Azure AD) for authentication and user management to improve access control and streamline administration.</li>
-                    <li>Designed and built responsive web-based systems to enhance internal IT infrastructure workflows and efficiency.</li>
-                    <li>Supported database handling, system integration, and backend functionality for internal platforms.</li>
-                    <li>Collaborated with the IT Infrastructure team to analyze requirements, troubleshoot issues, and improve application performance.</li>
-                    <li>Applied full stack development principles to deliver scalable and user-friendly systems.</li>
-                </ul>
+        <section class="section reveal" id="skills">
+            <div class="section-head">
+                <p class="section-kicker">Capabilities</p>
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skill-stack">
+                <article class="skill-row">
+                    <header>
+                        <h3>Frontend Development</h3>
+                        <span>95%</span>
+                    </header>
+                    <div class="skill-track"><div class="skill-fill" data-level="95"></div></div>
+                </article>
+                <article class="skill-row">
+                    <header>
+                        <h3>Backend Fundamentals</h3>
+                        <span>85%</span>
+                    </header>
+                    <div class="skill-track"><div class="skill-fill" data-level="85"></div></div>
+                </article>
+                <article class="skill-row">
+                    <header>
+                        <h3>Responsive UI Engineering</h3>
+                        <span>90%</span>
+                    </header>
+                    <div class="skill-track"><div class="skill-fill" data-level="90"></div></div>
+                </article>
+                <article class="skill-row">
+                    <header>
+                        <h3>Database and SQL</h3>
+                        <span>85%</span>
+                    </header>
+                    <div class="skill-track"><div class="skill-fill" data-level="85"></div></div>
+                </article>
+                <article class="skill-row">
+                    <header>
+                        <h3>REST API Integration</h3>
+                        <span>80%</span>
+                    </header>
+                    <div class="skill-track"><div class="skill-fill" data-level="80"></div></div>
+                </article>
             </div>
         </section>
 
-        <!-- Education Section -->
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="education-item">
-                <h3>Bachelor of Science in Information Technology</h3>
-                <p class="university">De La Salle Lipa | 2022 - 2026</p>
+        <section class="section reveal" id="experience">
+            <div class="section-head">
+                <p class="section-kicker">Journey</p>
+                <h2>Experience and Education</h2>
+            </div>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <p class="timeline-date">January 2026 - April 2026</p>
+                    <h3>IT Full Stack Developer Intern</h3>
+                    <p class="timeline-subtitle">LBC Express, IT Infrastructure Department</p>
+                    <ul>
+                        <li>Built and maintained internal tools for asset, user, and document operations.</li>
+                        <li>Integrated Azure AD authentication to strengthen access control.</li>
+                        <li>Collaborated with infrastructure teams to improve speed and reliability.</li>
+                    </ul>
+                </article>
+                <article class="timeline-item">
+                    <p class="timeline-date">2022 - 2026</p>
+                    <h3>Bachelor of Science in Information Technology</h3>
+                    <p class="timeline-subtitle">De La Salle Lipa</p>
+                    <p>Completed a strong foundation in software development, systems thinking, and project delivery through academic and internship-based projects.</p>
+                </article>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Jhed Mendoza. All rights reserved.</p>
+        <div class="container footer-shell">
+            <p>2026 Jhed Mendoza. Crafted with precision and personality.</p>
+            <a href="contact.html" class="footer-link">Start A Conversation</a>
         </div>
     </footer>
 
-    <script>
-    (function() {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (!navToggle || !navLinks) return;
-        navToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            navToggle.classList.toggle('open');
-            navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-    })();
-    </script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
